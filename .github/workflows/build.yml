@@ -10,6 +10,10 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: 2
+      - name: python2.7
+        run: |
+          sudo rm /bin/python
+          sudo ln -s /bin/python2.7 /bin/python
       - name: run docker container
         uses: docker://jakesoso/cm_build:los14.1
         with:
